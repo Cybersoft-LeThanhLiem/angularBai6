@@ -30,8 +30,8 @@
 				<th scope="col">Giá</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr *ngFor="let prod of products; index as i">
+		<tbody *ngFor="let prod of products; index as i">
+			<tr [ngClass]="i % 2 == 0 ? 'bg-light' : 'bg-secondary'">
 				<th scope="row">{{i + 1}}</th>
 				<td>{{prod.maSP}}</td>
 				<td>{{prod.tenSP}}</td>
