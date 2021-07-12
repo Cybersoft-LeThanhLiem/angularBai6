@@ -5,17 +5,18 @@
 			<form>
 				<div class="form-group">
 					<label for="">Mã SP</label>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" #maSP>
 				</div>
 				<div class="form-group">
 					<label for="">Tên SP</label>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" #tenSP>
 				</div>
 				<div class="form-group">
 					<label for="">Giá</label>
-					<input type="number" class="form-control">
+					<input type="number" class="form-control" #gia>
 				</div>
-				<button class="btn btn-success">Thêm sản phẩm</button>
+				<button class="btn btn-success" (click)="addNewProduct(maSP.value, tenSP.value, gia.value)">Thêm sản
+					phẩm</button>
 			</form>
 		</div>
 	</div>
@@ -30,11 +31,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
+			<tr *ngFor="let prod of products; index as i">
+				<th scope="row">{{i + 1}}</th>
+				<td>{{prod.maSP}}</td>
+				<td>{{prod.tenSP}}</td>
+				<td>{{prod.gia}}</td>
 			</tr>
 		</tbody>
 	</table>
